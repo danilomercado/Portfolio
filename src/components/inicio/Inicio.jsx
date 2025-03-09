@@ -1,6 +1,7 @@
 import React from "react";
 import Badge from "../badge/Badge";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "../../icons/Icons";
+import ViewCV from "../viewCV/ViewCV";
 
 const Inicio = () => {
   return (
@@ -18,15 +19,15 @@ const Inicio = () => {
             rel="noopener"
             class="flex items-center transition md:justify-center md:hover:scale-105"
           >
-            <Badge>Disponible para trabajar</Badge>
+            <Badge />
           </a>
         </div>
         <h1 className="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
           Hola, soy Danilo
         </h1>
-        <p class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300">
+        <p class="mt-6 text-xl text-wrap  text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300">
           <strong>Desarrollador Junior </strong>
-          de{" "}
+          <span> de </span>
           <span className="text-sky-300/90 opacity-100">
             Argentina, Santa Fe, Rosario
           </span>
