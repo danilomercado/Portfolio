@@ -1,7 +1,7 @@
 import React from "react";
 
 const downloadCV = () => {
-  return <div>downloadCV</div>;
+  return <div>Ver CV</div>;
 };
 
 export default downloadCV;
