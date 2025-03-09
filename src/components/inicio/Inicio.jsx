@@ -6,7 +6,7 @@ import ViewCV from "../viewCV/ViewCV";
 const Inicio = () => {
   return (
     <>
-      <div class="w-full mx-auto lg:w-[740px] py-44">
+      <div id="/" class="w-full mx-auto lg:w-[740px] py-44">
         <div class="flex gap-4 mb-4">
           <img
             className="rounded-full size-20"

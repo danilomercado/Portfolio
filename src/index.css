@@ -6,6 +6,7 @@
 
 html {
   font-family: "Onest Variable", sistem-ui, sans-serif;
+  overscroll-behavior: smooth;
 }
 
 body {
@@ -13,5 +14,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overscroll-behavior: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavidor: auto;
+  }
 }
