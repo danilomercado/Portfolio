@@ -5,6 +5,7 @@ import ViewCV from "./components/viewCV/ViewCV";
 import "@fontsource-variable/onest";
 import Footer from "./components/footer/Footer";
 import CardProyects from "./components/cardProyect/CardProyect";
+import AboutMe from "./components/aboutMe/AboutMe";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
         <div className="">
           <Header />
           <Inicio />
-          {/* <ViewCV /> */}
+          <ViewCV />
           <CardProyects />
+          <AboutMe />
           <Footer />
         </div>
       </div>
