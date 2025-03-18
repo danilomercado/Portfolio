@@ -16,7 +16,7 @@ const AboutMe = () => {
     >
       <div>
         <h2 className="text-3xl lg:text-4xl font-semibold mb-6 flex gap-x-3 items-center">
-          <IconUserFilled stroke={2} className="size-9" />
+          <IconUserFilled strokeWidth={2} className="size-9" />
           Sobre Mí
         </h2>
         <p className="text-lg text-gray-700 dark:text-gray-400 leading-relaxed">

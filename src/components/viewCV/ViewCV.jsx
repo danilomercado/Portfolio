@@ -42,7 +42,7 @@ const ViewCV = () => {
               {/* Contenido del PDF */}
               <div className="p-4 h-[500px]">
                 <iframe
-                  src="public/CV-DANILO-MERCADO.pdf"
+                  src="src/assets/CV-DANILO-MERCADO.pdf"
                   className="w-full h-full"
                 ></iframe>
               </div>
