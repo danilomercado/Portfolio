@@ -30,7 +30,7 @@ const CardProyects = () => {
       description: "Página para armar equipos de F5 de 10 o 8 personas.",
       link: "https://armarequipof5.netlify.app/",
       github: "https://github.com/danilomercado/FUTBOL5",
-      image: "src/assets/422shots_so.webp",
+      image: "/422shots_so.webp",
       tags: [TAGS.REACT, TAGS.TAILWIND],
     },
   ];
