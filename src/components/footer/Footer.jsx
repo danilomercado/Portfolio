@@ -1,7 +1,9 @@
 import { IconArrowNarrowUp } from "@tabler/icons-react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation("footer");
   return (
     <footer className="w-full xl:w-[1120px] mx-auto text-white py-5 flex flex-col items-center gap-4 opacity-80">
       <div className="flex justify-between w-full px-4 md:px-8">
@@ -10,14 +12,14 @@ const Footer = () => {
           <a href="#" className="hover:underline text-white">
             Danilo Mercado
           </a>
-          . Casi todos los derechos reservados.
+          {t("text")}
         </span>
         <nav className="flex gap-6">
           <a href="#sobre-mi" className="hover:underline">
-            Sobre Mi
+            {t("about-me")}
           </a>
           <a href="#contacto" className="hover:underline">
-            Contacto
+            {t("contact")}
           </a>
         </nav>
       </div>

@@ -2,8 +2,10 @@ import React from "react";
 import Badge from "../badge/Badge";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "../../icons/Icons";
 import ViewCV from "../viewCV/ViewCV";
+import { useTranslation } from "react-i18next";
 
 const Inicio = () => {
+  const { t } = useTranslation("inicio");
   return (
     <>
       <div id="/" className="w-full mx-auto lg:w-[740px] py-20 px-4">
@@ -23,20 +25,16 @@ const Inicio = () => {
           </a>
         </div>
         <h1 className="text-xl font-bold lg:text-5xl flex flex-row gap-x-4  tracking-tight text-gray-800 sm:text-5xl dark:text-white">
-          Hola, soy Danilo
+          {t("title")}
         </h1>
         <p className="mt-6 text-xl lg:text-2xl text-pretty max-w-[700px] text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300">
-          <strong>Desarrollador Junior </strong>
-          <span> de </span>
-          <span className="text-sky-300/90 opacity-100">
-            Argentina, Santa Fe, Rosario
-          </span>
-          , que busca aprender dia a dia. Actualmente estudiando desarrolo de
-          software.
+          <strong>{t("text1")} </strong>
+          <span> {t("text2")} </span>
+          <span className="text-sky-300/90 opacity-100">{t("localidad")}</span>
+          {t("text3")}
         </p>
         <nav className="flex flex-wrap gap-4 mt-8">
           <LinkedInIcon />
-          <MailIcon />
           <GitHubIcon />
         </nav>
       </div>

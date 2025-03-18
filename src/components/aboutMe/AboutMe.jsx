@@ -7,8 +7,10 @@ import {
   IconCode,
 } from "@tabler/icons-react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const AboutMe = () => {
+  const { t } = useTranslation("about-me");
   return (
     <section
       id="sobre-mi"
@@ -17,20 +19,16 @@ const AboutMe = () => {
       <div>
         <h2 className="text-3xl lg:text-4xl font-semibold mb-6 flex gap-x-3 items-center">
           <IconUserFilled strokeWidth={2} className="size-9" />
-          Sobre Mí
+          {t("about-me")}
         </h2>
         <p className="text-lg text-gray-700 dark:text-gray-400 leading-relaxed">
-          Me llamo <span className="font-semibold">Danilo Mercado</span> y tengo
-          20 años. Desde <strong>2023</strong>, estudio una carrera de{" "}
-          <span className="text-blue-500 font-medium">
-            Desarrolo de Software
-          </span>{" "}
-          en la <span className="font-medium">UTN de Rosario</span>.
+          {t("text")} <span className="font-semibold">{t("text2")}</span>{" "}
+          {t("text3")}
+          <strong>{t("text4")}</strong>
+          {t("text5")}{" "}
+          <span className="text-blue-500 font-medium">{t("text6")}</span>{" "}
+          {t("text7")} <span className="font-medium">{t("text8")}</span>.
         </p>
-
-        <h3 className="text-xl font-semibold mt-6 mb-4">
-          Tecnologías que utilizo
-        </h3>
       </div>
     </section>
   );

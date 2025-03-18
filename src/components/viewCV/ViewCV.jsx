@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { CVIcon } from "../../icons/Icons";
+import { useTranslation } from "react-i18next";
 
 const ViewCV = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useTranslation("view-cv");
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -20,7 +22,7 @@ const ViewCV = () => {
             onClick={openModal}
           >
             <CVIcon className="size-5 text-white opacity-90" />
-            <span className="relative z-10 text-base">Ver CV</span>
+            <span className="relative z-10 text-base">{t("view-cv")}</span>
           </button>
         </div>
 
@@ -53,7 +55,7 @@ const ViewCV = () => {
                   className="text-white bg-gray-800 border border-gray-300 focus:outline-none hover:bg-gray-700 focus:ring-4 focus:ring-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
                   onClick={closeModal}
                 >
-                  Cerrar
+                  {t("cerrar")}
                 </button>
               </div>
             </div>

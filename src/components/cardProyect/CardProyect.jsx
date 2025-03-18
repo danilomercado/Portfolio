@@ -6,8 +6,10 @@ import {
   IconLink,
 } from "@tabler/icons-react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const CardProyects = () => {
+  const { t } = useTranslation("proyects");
   const TAGS = {
     REACT: {
       name: "React",
@@ -27,7 +29,7 @@ const CardProyects = () => {
     {
       id: 1,
       title: "ArmaF5",
-      description: "Página para armar equipos de F5 de 10 o 8 personas.",
+      description: t("ArmaF5.text-proyect"),
       link: "https://armarequipof5.netlify.app/",
       github: "https://github.com/danilomercado/FUTBOL5",
       image: "/422shots_so.webp",
@@ -42,7 +44,7 @@ const CardProyects = () => {
     >
       <h2 className="text-3xl lg:text-4xl font-semibold mb-6 flex gap-x-3 items-center">
         <IconCode strokeWidth={2} className="size-9" />
-        Proyectos
+        {t("title")}
       </h2>
 
       <div className="flex flex-col gap-y-12">
@@ -108,7 +110,7 @@ const CardProyects = () => {
                       className="flex items-center gap-x-2 px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-full border border-gray-700 hover:bg-gray-700 transition"
                     >
                       <IconLink className="size-5" />
-                      Preview
+                      {t("preview")}
                     </a>
                   )}
                 </footer>
