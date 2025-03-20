@@ -8,7 +8,7 @@ const Inicio = () => {
   const { t } = useTranslation("inicio");
   return (
     <>
-      <div id="/" className="w-full mx-auto lg:w-[740px] py-20 px-4">
+      <div id="/" className="w-full mx-auto lg:w-[740px] py-20 px-4 mt-5">
         <div className="flex gap-4 mb-4">
           <img
             className="rounded-full size-25"
