@@ -1,5 +1,7 @@
 import {
   IconBrandGithub,
+  IconBrandMysql,
+  IconBrandNodejs,
   IconBrandReact,
   IconBrandTailwind,
   IconCode,
@@ -23,6 +25,18 @@ const CardProyects = () => {
         "bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md rounded-md px-2 py-1 flex items-center gap-x-1 hover:opacity-90",
       icon: IconBrandTailwind,
     },
+    NODE: {
+      name: "NodeJS",
+      class:
+        "bg-gradient-to-r from-green-500 to-green-700 text-white shadow-md rounded-md px-2 py-1 flex items-center gap-x-1 hover:opacity-90",
+      icon: IconBrandNodejs,
+    },
+    MYSQL: {
+      name: "MySQL",
+      class:
+        "bg-gradient-to-r from-orange-400 to-yellow-500 text-white shadow-md rounded-md px-2 py-1 flex items-center gap-x-1 hover:opacity-90",
+      icon: IconBrandMysql,
+    },
   };
 
   const PROYECTS = [
@@ -34,6 +48,14 @@ const CardProyects = () => {
       github: "https://github.com/danilomercado/FUTBOL5",
       image: "/422shots_so.webp",
       tags: [TAGS.REACT, TAGS.TAILWIND],
+    },
+    {
+      id: 2,
+      title: "CanchaYa",
+      description: t("CanchaYa.text-proyect"),
+      github: "https://github.com/danilomercado/CanchaYa.git",
+      image: "/canchaya.png",
+      tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.NODE],
     },
   ];
 

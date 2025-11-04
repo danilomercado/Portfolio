@@ -21,12 +21,12 @@ function Header() {
           >
             {t("text2")}
           </a>
-          <a
+          {/* <a
             href="#contacto"
             className="hover:text-sky-400 transition duration-300"
           >
             {t("text3")}
-          </a>
+          </a> */}
           <div className="flex  items-center">
             <ButtonLanguage />
           </div>

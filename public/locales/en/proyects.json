@@ -3,6 +3,9 @@
   "ArmaF5": {
     "text-proyect": "Página para armar equipos de F5 de 10 o 8 personas."
   },
+  "CanchaYa": {
+    "text-proyect": "Pagina para reservar canchas de futbol o padel. Con roles de usuario y un backend con NodeJS"
+  },
 
   "preview": "Ver Pagina"
 }

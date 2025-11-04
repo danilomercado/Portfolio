@@ -3,6 +3,9 @@
   "ArmaF5": {
     "text-proyect": "Page for creating F5 teams of 10 or 8 people."
   },
+  "CanchaYa": {
+    "text-proyect": "A website for booking soccer or padel courts, with user roles and a backend built with NodeJS."
+  },
 
   "preview": "Preview"
 }
