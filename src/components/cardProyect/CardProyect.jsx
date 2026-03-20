@@ -5,36 +5,29 @@ import {
   IconBrandReact,
   IconBrandTailwind,
   IconCode,
-  IconLink,
+  IconExternalLink,
 } from "@tabler/icons-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
 const CardProyects = () => {
   const { t } = useTranslation("proyects");
+
   const TAGS = {
     REACT: {
       name: "React",
-      class:
-        "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-md rounded-md px-2 py-1 flex items-center gap-x-1 hover:opacity-90",
       icon: IconBrandReact,
     },
     TAILWIND: {
       name: "Tailwind CSS",
-      class:
-        "bg-gradient-to-r from-teal-400 to-teal-600 text-white shadow-md rounded-md px-2 py-1 flex items-center gap-x-1 hover:opacity-90",
       icon: IconBrandTailwind,
     },
     NODE: {
-      name: "NodeJS",
-      class:
-        "bg-gradient-to-r from-green-500 to-green-700 text-white shadow-md rounded-md px-2 py-1 flex items-center gap-x-1 hover:opacity-90",
+      name: "Node.js",
       icon: IconBrandNodejs,
     },
     MYSQL: {
       name: "MySQL",
-      class:
-        "bg-gradient-to-r from-orange-400 to-yellow-500 text-white shadow-md rounded-md px-2 py-1 flex items-center gap-x-1 hover:opacity-90",
       icon: IconBrandMysql,
     },
   };
@@ -62,83 +55,91 @@ const CardProyects = () => {
   return (
     <section
       id="proyectos"
-      className="w-full mx-auto lg:w-[740px] py-16 px-4 container lg:max-w-4xl md:max-w-2xl"
+      className="mx-auto w-full max-w-6xl px-4 py-24 sm:px-6 lg:px-8"
     >
-      <h2 className="text-3xl lg:text-4xl font-semibold mb-6 flex gap-x-3 items-center">
-        <IconCode strokeWidth={2} className="size-9" />
-        {t("title")}
-      </h2>
+      <div className="mb-12">
+        <h2 className="flex items-center gap-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+            <IconCode strokeWidth={2} className="size-6 text-sky-300" />
+          </span>
+          {t("title")}
+        </h2>
 
-      <div className="flex flex-col gap-y-12">
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">
+          Proyectos reales enfocados en frontend, experiencia de usuario e
+          integración full stack.
+        </p>
+      </div>
+
+      <div className="grid gap-8">
         {PROYECTS.map(
           ({ id, image, title, description, tags, link, github }) => (
             <article
               key={id}
-              className="flex flex-col md:flex-row md:space-x-6 group"
+              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition duration-300 hover:-translate-y-1 hover:border-sky-400/30 hover:bg-white/[0.05]"
             >
-              {/* Imagen */}
-              <div className="w-full md:w-1/2">
-                <div className="relative flex items-center shadow-xl overflow-hidden rounded-xl z-10 md:group-hover:-translate-y-1 transition duration-300">
+              <div className="grid gap-0 md:grid-cols-[1.1fr_1fr]">
+                <div className="relative overflow-hidden border-b border-white/10 md:border-b-0 md:border-r">
                   <img
                     alt={title}
-                    className="object-cover w-full h-48 md:h-56 transition duration-300 md:group-hover:scale-105"
+                    className="h-full min-h-[240px] w-full object-cover transition duration-500 group-hover:scale-105"
                     loading="lazy"
                     src={image}
                   />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[#050816]/50 via-transparent to-transparent" />
+                </div>
+
+                <div className="flex flex-col justify-between p-6 sm:p-8">
+                  <div>
+                    <h3 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                      {title}
+                    </h3>
+
+                    <ul className="mt-4 flex flex-wrap gap-2">
+                      {tags.map((tag) => (
+                        <li key={tag.name}>
+                          <span className="inline-flex items-center gap-2 rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-xs font-medium text-sky-200">
+                            <tag.icon className="size-4" />
+                            {tag.name}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <p className="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">
+                      {description}
+                    </p>
+                  </div>
+
+                  <footer className="mt-8 flex flex-wrap gap-3">
+                    {github && (
+                      <a
+                        href={github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-white transition hover:border-sky-400/30 hover:bg-sky-400/10"
+                      >
+                        <IconBrandGithub className="size-5" />
+                        GitHub
+                      </a>
+                    )}
+
+                    {link && (
+                      <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-5 py-3 text-sm font-medium text-sky-200 transition hover:bg-sky-400/20"
+                      >
+                        <IconExternalLink className="size-5" />
+                        {t("preview")}
+                      </a>
+                    )}
+                  </footer>
                 </div>
               </div>
-
-              {/* Contenido */}
-              <div className="w-full md:w-1/2 md:max-w-lg">
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
-                  {title}
-                </h3>
-
-                <ul className="flex flex-wrap mt-2 gap-x-2">
-                  {tags.map((tag) => (
-                    <li key={tag.name}>
-                      <span
-                        className={`flex items-center gap-x-2 rounded-full text-xs font-medium px-2 py-1 ${tag.class}`}
-                      >
-                        <tag.icon className="size-4" />
-                        {tag.name}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <p className="text-lg text-pretty mt-2 text-gray-700 dark:text-gray-400">
-                  {description}
-                </p>
-
-                {/* Botones */}
-                <footer className="flex items-end justify-start mt-4 gap-x-4">
-                  {github && (
-                    <a
-                      href={github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-x-2 px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-full border border-gray-700 hover:bg-gray-700 transition"
-                    >
-                      <IconBrandGithub className="size-5" />
-                      GitHub
-                    </a>
-                  )}
-                  {link && (
-                    <a
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-x-2 px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-full border border-gray-700 hover:bg-gray-700 transition"
-                    >
-                      <IconLink className="size-5" />
-                      {t("preview")}
-                    </a>
-                  )}
-                </footer>
-              </div>
             </article>
-          )
+          ),
         )}
       </div>
     </section>

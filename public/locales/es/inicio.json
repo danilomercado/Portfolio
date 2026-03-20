@@ -1,7 +1,23 @@
 {
-  "title": "Hi, im Danilo",
+  "title": "Hi, I'm Danilo",
   "text1": "Junior Developer",
   "text2": "from",
   "localidad": "Argentina, Santa Fe, Rosario",
-  "text3": ", looking to learn every day. Currently studying software development."
+  "text3": ", looking to keep growing and learn every day. Currently studying software development.",
+
+  "typing1": "Full Stack Developer",
+  "typing2": "Backend Focused Developer",
+  "typing3": "ASP.NET Core & Node.js",
+  "typing4": "REST APIs & Databases",
+  "typing5": "Clean Architecture",
+
+  "stackTitle": "Main stack",
+  "stackValue": "ASP.NET Core · Node.js · PostgreSQL · SQL Server · React",
+  "stackDescription": "Full stack development with a balanced focus on backend and frontend, with experience in REST APIs, business logic, JWT authentication, and database modeling.",
+
+  "goalTitle": "Goal",
+  "goalValue": "Looking for my first professional experience as a full stack developer.",
+
+  "locationTitle": "Location",
+  "locationValue": "Rosario, Santa Fe, Argentina"
 }

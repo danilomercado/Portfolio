@@ -6,31 +6,34 @@ function Header() {
   const { t } = useTranslation("header");
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 neutral-900 backdrop-blur-md border-b border-sky-400 shadow-[0px_0px_10px_2px_rgba(56,189,248,0.5)] transition-shadow duration-500 ease-in-out hover:shadow-[0px_0px_20px_4px_rgba(56,189,248,0.8)]">
-      <div className="text-white flex justify-center items-center py-4 w-full xl:w-[1120px] mx-auto">
-        <nav className="flex flex-row items-center gap-x-10 text-lg font-medium">
+    <header className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-[#050816]/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a
+          href="#/"
+          className="text-lg font-semibold tracking-tight text-white transition hover:text-sky-300"
+        >
+          Danilo<span className="text-sky-400">.dev</span>
+        </a>
+
+        <nav className="hidden items-center gap-8 md:flex">
           <a
             href="#proyectos"
-            className="hover:text-sky-400 transition duration-300"
+            className="text-sm font-medium text-white/80 transition hover:text-sky-300"
           >
             {t("text1")}
           </a>
+
           <a
             href="#sobre-mi"
-            className="hover:text-sky-400 transition duration-300"
+            className="text-sm font-medium text-white/80 transition hover:text-sky-300"
           >
             {t("text2")}
           </a>
-          {/* <a
-            href="#contacto"
-            className="hover:text-sky-400 transition duration-300"
-          >
-            {t("text3")}
-          </a> */}
-          <div className="flex  items-center">
-            <ButtonLanguage />
-          </div>
         </nav>
+
+        <div className="flex items-center">
+          <ButtonLanguage />
+        </div>
       </div>
     </header>
   );

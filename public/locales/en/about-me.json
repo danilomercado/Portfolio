@@ -1,11 +1,25 @@
 {
-  "about-me": "Sobre Mi",
-  "text": "Me llamo",
-  "text2": "Danilo Mercado",
-  "text3": "y tengo 20 años. Desde ",
-  "text4": "2023",
-  "text5": ", estudio una carrera de",
-  "text6": "Desarrollo de Software",
-  "text7": "en la",
-  "text8": "UTN de Rosario. Actualmente en el ultimo cuatrimestre de la carrera"
+  "title": "Sobre mí",
+  "intro": "Tengo 21 años y estoy enfocado en seguir creciendo dentro del desarrollo de software, construyendo proyectos que me permitan ganar experiencia real.",
+
+  "card1Title": "Forma de trabajar",
+  "card1Text": "Me enfoco en entender bien el problema antes de escribir código, buscando soluciones simples y escalables.",
+
+  "card2Title": "Aprendizaje",
+  "card2Text": "Aprendo construyendo proyectos reales, cometiendo errores y mejorando constantemente mi forma de desarrollar.",
+
+  "card3Title": "Mentalidad",
+  "card3Text": "Me interesa crecer como desarrollador a largo plazo, priorizando buenas prácticas y código mantenible.",
+
+  "p1": "Me interesa especialmente entender cómo funciona una aplicación más allá de la interfaz: desde el diseño de endpoints y reglas de negocio hasta la organización del código y la conexión con bases de datos.",
+
+  "p2": "Disfruto trabajar en proyectos donde pueda aplicar buenas prácticas, escribir código mantenible y mejorar tanto en la parte técnica como en la resolución de problemas concretos.",
+
+  "p3": "Actualmente estudio desarrollo de software en la UTN de Rosario y complemento esa formación creando proyectos propios para seguir fortaleciendo mi perfil full stack.",
+
+  "sideTitle1": "Actualmente",
+  "sideText1": "Estudiando desarrollo de software y construyendo proyectos personales.",
+
+  "sideTitle2": "Objetivo",
+  "sideText2": "Conseguir mi primera experiencia profesional y seguir evolucionando como desarrollador."
 }

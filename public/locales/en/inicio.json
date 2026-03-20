@@ -3,5 +3,21 @@
   "text1": "Desarrollador Junior",
   "text2": "de",
   "localidad": "Argentina, Santa Fe, Rosario",
-  "text3": ", que busca aprender dia a dia. Actualmente estudiando desarrollo de software."
+  "text3": ", buscando seguir creciendo y aprender todos los días. Actualmente estudiando desarrollo de software.",
+
+  "typing1": "Full Stack Developer",
+  "typing2": "Backend Focused Developer",
+  "typing3": "ASP.NET Core & Node.js",
+  "typing4": "REST APIs & Databases",
+  "typing5": "Clean Architecture",
+
+  "stackTitle": "Stack principal",
+  "stackValue": "ASP.NET Core · Node.js · PostgreSQL · SQL Server · React",
+  "stackDescription": "Desarrollo full stack con enfoque equilibrado entre backend y frontend, con experiencia en APIs REST, lógica de negocio, autenticación con JWT y modelado de bases de datos.",
+
+  "goalTitle": "Objetivo",
+  "goalValue": "Buscando mi primera experiencia profesional como desarrollador full stack.",
+
+  "locationTitle": "Ubicación",
+  "locationValue": "Rosario, Santa Fe, Argentina"
 }

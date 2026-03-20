@@ -1,24 +1,29 @@
-import { IconArrowNarrowUp } from "@tabler/icons-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
 const Footer = () => {
   const { t } = useTranslation("footer");
+
   return (
-    <footer className="w-full xl:w-[1120px] mx-auto text-white py-5 flex flex-col items-center gap-4 opacity-80">
-      <div className="flex justify-between w-full px-4 md:px-8">
-        <span className="text-sm text-gray-300">
+    <footer className="mt-20 border-t border-white/10">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-white/60 sm:px-6 lg:px-8 md:flex-row md:items-center md:justify-between">
+        <span>
           © 2025{" "}
-          <a href="#" className="hover:underline text-white">
+          <a
+            href="#/"
+            className="font-medium text-white transition hover:text-sky-300"
+          >
             Danilo Mercado
-          </a>
+          </a>{" "}
           {t("text")}
         </span>
-        <nav className="flex gap-6">
-          <a href="#sobre-mi" className="hover:underline">
+
+        <nav className="flex items-center gap-6">
+          <a href="#proyectos" className="transition hover:text-sky-300">
             {t("about-me")}
           </a>
-          <a href="#contacto" className="hover:underline">
+
+          <a href="#sobre-mi" className="transition hover:text-sky-300">
             {t("contact")}
           </a>
         </nav>

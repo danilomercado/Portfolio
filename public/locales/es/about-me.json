@@ -1,11 +1,25 @@
 {
-  "about-me": "About Me",
-  "text": "My name is",
-  "text2": "Danilo Mercado",
-  "text3": "and I'm 20 years old. Since ",
-  "text4": "2023",
-  "text5": ", I've been studying",
-  "text6": "Software Development",
-  "text7": "at the",
-  "text8": "UTN in Rosario. Currently in the final semester of the degree"
+  "title": "About Me",
+  "intro": "I’m 21 years old and focused on continuing to grow in software development by building projects that help me gain real experience.",
+
+  "card1Title": "Work style",
+  "card1Text": "I focus on fully understanding the problem before writing code, aiming for simple and scalable solutions.",
+
+  "card2Title": "Learning",
+  "card2Text": "I learn by building real projects, making mistakes, and continuously improving how I develop.",
+
+  "card3Title": "Mindset",
+  "card3Text": "I aim to grow long-term as a developer, prioritizing good practices and maintainable code.",
+
+  "p1": "I’m especially interested in understanding how an application works beyond the interface: from endpoint design and business rules to code organization and database integration.",
+
+  "p2": "I enjoy working on projects where I can apply good practices, write maintainable code, and improve both technically and in solving real problems.",
+
+  "p3": "I’m currently studying software development at UTN Rosario and complement that learning by building personal projects to continue strengthening my full stack profile.",
+
+  "sideTitle1": "Currently",
+  "sideText1": "Studying software development and building personal projects.",
+
+  "sideTitle2": "Goal",
+  "sideText2": "To land my first professional opportunity and keep evolving as a developer."
 }
