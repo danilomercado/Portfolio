@@ -14,36 +14,55 @@ const CardProyects = () => {
   const { t } = useTranslation("proyects");
 
   const TAGS = {
-    REACT: {
-      name: "React",
-      icon: IconBrandReact,
-    },
-    TAILWIND: {
-      name: "Tailwind CSS",
-      icon: IconBrandTailwind,
-    },
-    NODE: {
-      name: "Node.js",
-      icon: IconBrandNodejs,
-    },
-    MYSQL: {
-      name: "MySQL",
-      icon: IconBrandMysql,
-    },
+    REACT: { name: "React", icon: IconBrandReact },
+    TAILWIND: { name: "Tailwind CSS", icon: IconBrandTailwind },
+    NODE: { name: "Node.js", icon: IconBrandNodejs },
+    MYSQL: { name: "MySQL", icon: IconBrandMysql },
+
+    DOTNET: { name: ".NET", icon: IconCode },
+    POSTGRES: { name: "PostgreSQL", icon: IconBrandMysql },
+    EF: { name: "Entity Framework", icon: IconCode },
+    JWT: { name: "JWT", icon: IconCode },
+    EXPRESS: { name: "Express", icon: IconCode },
+    PRISMA: { name: "Prisma", icon: IconCode },
   };
 
   const PROYECTS = [
     {
       id: 1,
+      title: "YumeTrack",
+      description: t("YumeTrack.text-proyect"),
+      github: "https://github.com/danilomercado/YumeTrack",
+      image: "/yumePort.png",
+      status: "in-progress",
+      tags: [
+        TAGS.REACT,
+        TAGS.TAILWIND,
+        TAGS.DOTNET,
+        TAGS.POSTGRES,
+        TAGS.EF,
+        TAGS.JWT,
+      ],
+    },
+    {
+      id: 2,
       title: "ArmaF5",
       description: t("ArmaF5.text-proyect"),
       link: "https://armarequipof5.netlify.app/",
       github: "https://github.com/danilomercado/FUTBOL5",
-      image: "/422shots_so.webp",
-      tags: [TAGS.REACT, TAGS.TAILWIND],
+      image: "/f5Port.png",
+      tags: [
+        TAGS.REACT,
+        TAGS.TAILWIND,
+        TAGS.NODE,
+        TAGS.EXPRESS,
+        TAGS.POSTGRES,
+        TAGS.PRISMA,
+        TAGS.JWT,
+      ],
     },
     {
-      id: 2,
+      id: 3,
       title: "CanchaYa",
       description: t("CanchaYa.text-proyect"),
       github: "https://github.com/danilomercado/CanchaYa.git",
@@ -73,7 +92,7 @@ const CardProyects = () => {
 
       <div className="grid gap-8">
         {PROYECTS.map(
-          ({ id, image, title, description, tags, link, github }) => (
+          ({ id, image, title, description, tags, github, status }) => (
             <article
               key={id}
               className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition duration-300 hover:-translate-y-1 hover:border-sky-400/30 hover:bg-white/[0.05]"
@@ -91,6 +110,12 @@ const CardProyects = () => {
 
                 <div className="flex flex-col justify-between p-6 sm:p-8">
                   <div>
+                    {status === "in-progress" && (
+                      <span className="inline-block mb-3 rounded-full bg-yellow-400/10 px-3 py-1 text-xs text-yellow-300 border border-yellow-400/20">
+                        En desarrollo
+                      </span>
+                    )}
+
                     <h3 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                       {title}
                     </h3>
@@ -124,7 +149,7 @@ const CardProyects = () => {
                       </a>
                     )}
 
-                    {link && (
+                    {/* {link && (
                       <a
                         href={link}
                         target="_blank"
@@ -134,7 +159,7 @@ const CardProyects = () => {
                         <IconExternalLink className="size-5" />
                         {t("preview")}
                       </a>
-                    )}
+                    )} */}
                   </footer>
                 </div>
               </div>

@@ -1,7 +1,10 @@
 {
   "title": "Proyects",
+  "YumeTrack": {
+    "text-proyect": "Fullstack social platform for tracking anime and manga. Allows users to manage lists, write reviews, like, comment, and follow others. Currently in development."
+  },
   "ArmaF5": {
-    "text-proyect": "Page for creating F5 teams of 10 or 8 people."
+    "text-proyect": "Fullstack application to automatically generate balanced 5-a-side football teams based on player skills. Includes JWT authentication, player management, team creation, and role-based access (user/admin)."
   },
   "CanchaYa": {
     "text-proyect": "A website for booking soccer or padel courts, with user roles and a backend built with NodeJS."
