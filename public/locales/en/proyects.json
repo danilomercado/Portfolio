@@ -1,7 +1,7 @@
 {
   "title": "Proyectos",
   "YumeTrack": {
-    "text-proyect": "Aplicación fullstack tipo red social para tracking de anime y manga. Permite gestionar listas, dejar reviews, dar likes, comentar y seguir usuarios. Actualmente en desarrollo."
+    "text-proyect": "Aplicación fullstack tipo red social para tracking de anime y manga. Permite gestionar listas, dejar reviews, dar likes, comentar y seguir usuarios."
   },
   "ArmaF5": {
     "text-proyect": "Aplicación fullstack para armar equipos de fútbol 5 de forma automática y equilibrada según habilidades. Incluye autenticación con JWT, gestión de jugadores, creación de equipos y roles (usuario/admin)."

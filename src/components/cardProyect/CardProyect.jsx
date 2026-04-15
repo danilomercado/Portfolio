@@ -34,7 +34,7 @@ const CardProyects = () => {
       description: t("YumeTrack.text-proyect"),
       github: "https://github.com/danilomercado/YumeTrack",
       image: "/yumePort.png",
-      status: "in-progress",
+      // status: "in-progress",
       tags: [
         TAGS.REACT,
         TAGS.TAILWIND,
