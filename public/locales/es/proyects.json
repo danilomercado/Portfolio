@@ -1,7 +1,10 @@
 {
-  "title": "Proyects",
+  "title": "Projects",
   "YumeTrack": {
     "text-proyect": "Fullstack social platform for tracking anime and manga. Allows users to manage lists, write reviews, like, comment, and follow others."
+  },
+  "OdooAgent": {
+    "text-proyect": "AI Agent connected to Odoo ERP. Automates lead management from unstructured text via WhatsApp/Email using LangChain, Function Calling, and XML-RPC."
   },
   "ArmaF5": {
     "text-proyect": "Fullstack application to automatically generate balanced 5-a-side football teams based on player skills. Includes JWT authentication, player management, team creation, and role-based access (user/admin)."
@@ -9,6 +12,5 @@
   "CanchaYa": {
     "text-proyect": "A website for booking soccer or padel courts, with user roles and a backend built with NodeJS."
   },
-
   "preview": "Preview"
 }

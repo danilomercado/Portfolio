@@ -4,6 +4,8 @@ import {
   IconBrandNodejs,
   IconBrandReact,
   IconBrandTailwind,
+  IconBrandPython,
+  IconCpu,
   IconCode,
   IconExternalLink,
 } from "@tabler/icons-react";
@@ -18,23 +20,33 @@ const CardProyects = () => {
     TAILWIND: { name: "Tailwind CSS", icon: IconBrandTailwind },
     NODE: { name: "Node.js", icon: IconBrandNodejs },
     MYSQL: { name: "MySQL", icon: IconBrandMysql },
+    PYTHON: { name: "Python", icon: IconBrandPython },
+    LANGCHAIN: { name: "LangChain", icon: IconCpu },
 
     DOTNET: { name: ".NET", icon: IconCode },
-    POSTGRES: { name: "PostgreSQL", icon: IconBrandMysql },
+    POSTGRES: { name: "PostgreSQL", icon: IconBrandMysql }, // Usando el mismo wrapper si no tenés el de Postgres
     EF: { name: "Entity Framework", icon: IconCode },
     JWT: { name: "JWT", icon: IconCode },
     EXPRESS: { name: "Express", icon: IconCode },
     PRISMA: { name: "Prisma", icon: IconCode },
+    XMLRPC: { name: "XML-RPC", icon: IconCode },
   };
 
   const PROYECTS = [
     {
       id: 1,
+      title: "Odoo AI Agent",
+      description: t("OdooAgent.text-proyect"),
+      github: "https://github.com/danilomercado/Odoo-AI-Agent", // Ajustalo a tu repo
+      image: "/odoo.png", // Asegurate de guardar una captura acá en tu carpeta public
+      tags: [TAGS.PYTHON, TAGS.LANGCHAIN, TAGS.XMLRPC, TAGS.POSTGRES],
+    },
+    {
+      id: 2,
       title: "YumeTrack",
       description: t("YumeTrack.text-proyect"),
       github: "https://github.com/danilomercado/YumeTrack",
       image: "/yumePort.png",
-      // status: "in-progress",
       tags: [
         TAGS.REACT,
         TAGS.TAILWIND,
@@ -45,7 +57,7 @@ const CardProyects = () => {
       ],
     },
     {
-      id: 2,
+      id: 3,
       title: "ArmaF5",
       description: t("ArmaF5.text-proyect"),
       link: "https://armarequipof5.netlify.app/",
@@ -62,7 +74,7 @@ const CardProyects = () => {
       ],
     },
     {
-      id: 3,
+      id: 4,
       title: "CanchaYa",
       description: t("CanchaYa.text-proyect"),
       github: "https://github.com/danilomercado/CanchaYa.git",
@@ -92,7 +104,7 @@ const CardProyects = () => {
 
       <div className="grid gap-8">
         {PROYECTS.map(
-          ({ id, image, title, description, tags, github, status }) => (
+          ({ id, image, title, description, tags, github, link, status }) => (
             <article
               key={id}
               className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition duration-300 hover:-translate-y-1 hover:border-sky-400/30 hover:bg-white/[0.05]"
@@ -149,7 +161,7 @@ const CardProyects = () => {
                       </a>
                     )}
 
-                    {/* {link && (
+                    {link && (
                       <a
                         href={link}
                         target="_blank"
@@ -159,7 +171,7 @@ const CardProyects = () => {
                         <IconExternalLink className="size-5" />
                         {t("preview")}
                       </a>
-                    )} */}
+                    )}
                   </footer>
                 </div>
               </div>

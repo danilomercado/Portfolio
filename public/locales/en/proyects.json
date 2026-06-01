@@ -3,12 +3,14 @@
   "YumeTrack": {
     "text-proyect": "Aplicación fullstack tipo red social para tracking de anime y manga. Permite gestionar listas, dejar reviews, dar likes, comentar y seguir usuarios."
   },
+  "OdooAgent": {
+    "text-proyect": "Agente de IA integrado a Odoo ERP. Automatiza la creación de leads desde mensajes de texto desestructurados usando LangChain, Function Calling y XML-RPC."
+  },
   "ArmaF5": {
     "text-proyect": "Aplicación fullstack para armar equipos de fútbol 5 de forma automática y equilibrada según habilidades. Incluye autenticación con JWT, gestión de jugadores, creación de equipos y roles (usuario/admin)."
   },
   "CanchaYa": {
     "text-proyect": "Pagina para reservar canchas de futbol o padel. Con roles de usuario y un backend con NodeJS"
   },
-
   "preview": "Ver Pagina"
 }
