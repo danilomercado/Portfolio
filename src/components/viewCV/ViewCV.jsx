@@ -40,7 +40,7 @@ const ViewCV = () => {
 
             <div className="h-[75vh] p-4 sm:p-6">
               <iframe
-                src="/CV - Danilo Mercado.pdf"
+                src="/CV - Danilo.pdf"
                 className="h-full w-full rounded-2xl bg-white"
                 title="CV Danilo Mercado"
               />
