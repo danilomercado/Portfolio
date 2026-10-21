@@ -60,7 +60,6 @@ const CardProyects = () => {
       id: 3,
       title: "ArmaF5",
       description: t("ArmaF5.text-proyect"),
-      link: "https://armarequipof5.netlify.app/",
       github: "https://github.com/danilomercado/FUTBOL5",
       image: "/f5Port.png",
       tags: [
