@@ -1,25 +1,25 @@
 {
   "title": "About Me",
-  "intro": "I’m 21 years old and focused on continuing to grow in software development by building projects that help me gain real experience.",
+  "intro": "Software developer focused on building complete full stack applications, combining modern interface design with solid and scalable backend architectures.",
 
   "card1Title": "Work style",
-  "card1Text": "I focus on fully understanding the problem before writing code, aiming for simple and scalable solutions.",
+  "card1Text": "I focus on deeply understanding the problem before writing code, designing simple, efficient, and modular solutions.",
 
-  "card2Title": "Learning",
-  "card2Text": "I learn by building real projects, making mistakes, and continuously improving how I develop.",
+  "card2Title": "Continuous Learning",
+  "card2Text": "I refine my skills by building production-grade applications, diving deep into design patterns and continuous optimization.",
 
   "card3Title": "Mindset",
-  "card3Text": "I aim to grow long-term as a developer, prioritizing good practices and maintainable code.",
+  "card3Text": "I prioritize best practices, security, and maintainable code to create dependable and long-lasting software.",
 
   "p1": "I’m especially interested in understanding how an application works beyond the interface: from endpoint design and business rules to code organization and database integration.",
 
   "p2": "I enjoy working on projects where I can apply good practices, write maintainable code, and improve both technically and in solving real problems.",
 
-  "p3": "I’m currently studying software development at UTN Rosario and complement that learning by building personal projects to continue strengthening my full stack profile.",
+  "p3": "I complement my technical profile by developing advanced full stack projects, implementing secure authentication, relational databases, and AI agents.",
 
   "sideTitle1": "Currently",
-  "sideText1": "Studying software development and building personal projects.",
+  "sideText1": "Building full stack web applications and AI-powered solutions.",
 
-  "sideTitle2": "Goal",
-  "sideText2": "To land my first professional opportunity and keep evolving as a developer."
+  "sideTitle2": "Specialty",
+  "sideText2": "Backend architecture in ASP.NET Core and Node.js with reactive frontend in React."
 }

@@ -1,25 +1,25 @@
 {
   "title": "Sobre mí",
-  "intro": "Tengo 21 años y estoy enfocado en seguir creciendo dentro del desarrollo de software, construyendo proyectos que me permitan ganar experiencia real.",
+  "intro": "Desarrollador de software enfocado en construir aplicaciones full stack completas, combinando diseño de interfaces moderno con arquitecturas de backend sólidas y escalables.",
 
   "card1Title": "Forma de trabajar",
-  "card1Text": "Me enfoco en entender bien el problema antes de escribir código, buscando soluciones simples y escalables.",
+  "card1Text": "Me enfoco en entender a fondo el problema antes de escribir código, diseñando soluciones simples, eficientes y modulares.",
 
-  "card2Title": "Aprendizaje",
-  "card2Text": "Aprendo construyendo proyectos reales, cometiendo errores y mejorando constantemente mi forma de desarrollar.",
+  "card2Title": "Aprendizaje continuo",
+  "card2Text": "Perfecciono mis habilidades construyendo aplicaciones de producción, profundizando en patrones de diseño y optimización continua.",
 
   "card3Title": "Mentalidad",
-  "card3Text": "Me interesa crecer como desarrollador a largo plazo, priorizando buenas prácticas y código mantenible.",
+  "card3Text": "Priorizo las buenas prácticas, la seguridad y el código mantenible para crear software confiable y duradero.",
 
   "p1": "Me interesa especialmente entender cómo funciona una aplicación más allá de la interfaz: desde el diseño de endpoints y reglas de negocio hasta la organización del código y la conexión con bases de datos.",
 
   "p2": "Disfruto trabajar en proyectos donde pueda aplicar buenas prácticas, escribir código mantenible y mejorar tanto en la parte técnica como en la resolución de problemas concretos.",
 
-  "p3": "Actualmente estudio desarrollo de software en la UTN de Rosario y complemento esa formación creando proyectos propios para seguir fortaleciendo mi perfil full stack.",
+  "p3": "Complemento mi perfil técnico desarrollando proyectos full stack avanzados, implementando autenticación segura, bases de datos relacionales y agentes de inteligencia artificial.",
 
   "sideTitle1": "Actualmente",
-  "sideText1": "Estudiando desarrollo de software y construyendo proyectos personales.",
+  "sideText1": "Construyendo aplicaciones web full stack y soluciones con inteligencia artificial.",
 
-  "sideTitle2": "Objetivo",
-  "sideText2": "Conseguir mi primera experiencia profesional y seguir evolucionando como desarrollador."
+  "sideTitle2": "Especialidad",
+  "sideText2": "Arquitectura backend en ASP.NET Core y Node.js con frontend reactivo en React."
 }

@@ -3,7 +3,7 @@
   "text1": "Software Developer",
   "text2": "from",
   "localidad": "Argentina, Santa Fe, Rosario",
-  "text3": ", looking to keep growing and learn every day. Currently studying software development.",
+  "text3": ", focused on full stack development and building scalable, maintainable, and high-impact solutions.",
 
   "typing1": "Full Stack Developer",
   "typing2": "Backend Focused Developer",
@@ -13,10 +13,10 @@
 
   "stackTitle": "Main stack",
   "stackValue": "ASP.NET Core · Node.js · PostgreSQL · SQL Server · React",
-  "stackDescription": "Full stack development with a balanced focus on backend and frontend, with experience in REST APIs, business logic, JWT authentication, and database modeling.",
+  "stackDescription": "Full stack development with a strong focus on robust REST APIs, clean architecture, JWT authentication, and relational database modeling.",
 
-  "goalTitle": "Goal",
-  "goalValue": "Looking for my first professional experience as a full stack developer.",
+  "focusTitle": "Specialization",
+  "focusValue": "Developing modern web applications, scalable architectures, and system integrations.",
 
   "locationTitle": "Location",
   "locationValue": "Rosario, Santa Fe, Argentina"
