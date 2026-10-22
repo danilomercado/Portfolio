@@ -9,6 +9,7 @@ import ViewCV from "../viewCV/ViewCV";
 // Sección de presentación estilizada con estética RPG medieval y contenido profesional
 const Inicio = () => {
   const { t } = useTranslation("inicio");
+  const { t: tBadge } = useTranslation("badge");
 
   return (
     <section
@@ -26,12 +27,12 @@ const Inicio = () => {
               {/* Anillo rúnico decorativo */}
               <div className="absolute inset-1 rounded-full border border-dashed border-[#facc15]/40 animate-spin [animation-duration:40s]" />
 
-              {/* Imagen del perfil */}
+              {/* Imagen del perfil centrada verticalmente */}
               <div className="relative size-full overflow-hidden rounded-full border-2 border-[#fef08a]/60 bg-[#0c0914]">
                 <img
-                  src="/cv.png"
+                  src="/watermarked_img_4506104087006495303.jpg"
                   alt="Foto de perfil de Danilo Mercado"
-                  className="size-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                  className="size-full object-cover object-[center_18%] transition-transform duration-500 hover:scale-105"
                 />
               </div>
 
@@ -45,18 +46,28 @@ const Inicio = () => {
           </div>
 
           <div className="w-full max-w-2xl">
-            {/* Subtítulo con efecto de escritura mágica */}
-            <div className="mb-3 inline-flex items-center gap-2 rounded-sm border border-[#d4a737]/40 bg-[#161124] px-3 py-1 font-['Cinzel'] text-xs font-bold tracking-widest text-[#facc15] shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-              <Sparkles size={12} className="text-[#38bdf8]" />
-              <TypingText
-                texts={[
-                  t("typing1"),
-                  t("typing2"),
-                  t("typing3"),
-                  t("typing4"),
-                  t("typing5"),
-                ]}
-              />
+            {/* Insignia de disponibilidad y texto animado */}
+            <div className="mb-3 flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
+              <span className="inline-flex items-center gap-2 rounded-sm border border-emerald-500/50 bg-emerald-950/60 px-3 py-1 font-['Cinzel'] text-xs font-bold text-emerald-300 shadow-[0_0_10px_rgba(16,185,129,0.25)]">
+                <span className="relative flex size-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+                </span>
+                <span>{tBadge("title")}</span>
+              </span>
+
+              <div className="inline-flex items-center gap-2 rounded-sm border border-[#d4a737]/40 bg-[#161124] px-3 py-1 font-['Cinzel'] text-xs font-bold tracking-widest text-[#facc15] shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+                <Sparkles size={12} className="text-[#38bdf8]" />
+                <TypingText
+                  texts={[
+                    t("typing1"),
+                    t("typing2"),
+                    t("typing3"),
+                    t("typing4"),
+                    t("typing5"),
+                  ]}
+                />
+              </div>
             </div>
 
             {/* Título profesional en fuente de fantasía medieval */}

@@ -1,0 +1,30 @@
+{
+  "badge": "Ecosystem & Technical Skills",
+  "title": "Tech Stack",
+  "subtitle": "Tools, languages, and architectures used to build robust software.",
+  "categories": {
+    "all": "All Technologies",
+    "backend": "Backend & APIs",
+    "frontend": "Frontend & UI",
+    "database": "Databases & SQL",
+    "tools": "Tools & Practices"
+  },
+  "items": {
+    "dotnet": "High-performance RESTful APIs, Clean Architecture, dependency injection, and LINQ.",
+    "nodejs": "Asynchronous web services, modular middlewares, routing, and scalable microservices.",
+    "python": "AI agent development, XML-RPC automation, and LLM integrations.",
+    "ef": "ORM for .NET with Code-First approach, automated migrations, and optimized queries.",
+    "jwt": "Secure role-based access control (RBAC), encrypted tokens, and route protection.",
+    "react": "Interactive Single Page Applications, Custom Hooks, component architecture, and state.",
+    "tailwind": "Mobile-first responsive design, fluid micro-animations, and modern design systems.",
+    "javascript": "Promises, Async/Await, DOM manipulation, functional programming, and modularization.",
+    "htmlcss": "Accessible semantic structures, Grid, Flexbox, CSS variables, and accelerated animations.",
+    "postgres": "Robust relational modeling, foreign keys, high-performance indexes, and ACID transactions.",
+    "sqlserver": "Advanced T-SQL queries, stored procedures, and native .NET ecosystem integration.",
+    "mysql": "Efficient schema design, normalization, and connection with Node.js architectures.",
+    "prisma": "Strict typing with declarative schemas, safe migrations, and TypeScript/Node queries.",
+    "git": "Distributed version control, branches, pull requests, and clean repository maintenance.",
+    "cleanarch": "Decoupled design patterns, layer separation (Domain, Application, Infrastructure, API).",
+    "docker": "Lightweight virtualization for development environments and reproducible cross-platform deployments."
+  }
+}

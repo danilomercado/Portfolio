@@ -1,0 +1,30 @@
+{
+  "badge": "Ecosistema & Dominio Técnico",
+  "title": "Stack Tecnológico",
+  "subtitle": "Herramientas, lenguajes y arquitecturas utilizadas para desarrollar software robusto.",
+  "categories": {
+    "all": "Todas las Tecnologías",
+    "backend": "Backend & APIs",
+    "frontend": "Frontend & UI",
+    "database": "Bases de Datos & SQL",
+    "tools": "Herramientas & Prácticas"
+  },
+  "items": {
+    "dotnet": "APIs RESTful de alto rendimiento, Clean Architecture, inyección de dependencias y LINQ.",
+    "nodejs": "Servicios web asíncronos, middlewares modulares, routing y microservicios escalables.",
+    "python": "Desarrollo de agentes de IA, automatización con XML-RPC e integración con LLMs.",
+    "ef": "ORM para .NET con enfoque Code-First, migraciones automáticas y consultas optimizadas.",
+    "jwt": "Control de acceso seguro basado en roles (RBAC), tokens cifrados y protección de rutas.",
+    "react": "Single Page Applications interactivas, Custom Hooks, arquitectura de componentes y estado.",
+    "tailwind": "Diseño responsivo móvil-primero, micro-animaciones fluidas y sistemas de diseño modernos.",
+    "javascript": "Promesas, Async/Await, manipulación del DOM, programación funcional y modularización.",
+    "htmlcss": "Estructuras semánticas accesibles, Grid, Flexbox, variables CSS y animaciones aceleradas.",
+    "postgres": "Modelado relacional robusto, claves foráneas, índices de alto rendimiento y transacciones ACID.",
+    "sqlserver": "Consultas T-SQL avanzadas, procedimientos almacenados e integración nativa con .NET.",
+    "mysql": "Diseño de esquemas eficientes, normalización y conexión con arquitecturas Node.js.",
+    "prisma": "Tipado estricto con esquemas declarativos, migraciones seguras y consultas TypeScript/Node.",
+    "git": "Control de versiones distribuido, ramas, pull requests y mantenimiento de repositorios limpios.",
+    "cleanarch": "Patrones de diseño desacoplados, separación de capas (Dominio, Aplicación, Infraestructura, API).",
+    "docker": "Virtualización ligera de entornos de desarrollo y despliegues reproducibles multiplataforma."
+  }
+}

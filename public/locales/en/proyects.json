@@ -1,5 +1,7 @@
 {
   "title": "Proyectos",
+  "badge": "Proyectos Destacados",
+  "subtitle": "Proyectos reales enfocados en frontend, experiencia de usuario e integración full stack.",
   "YumeTrack": {
     "text-proyect": "Aplicación fullstack tipo red social para tracking de anime y manga. Permite gestionar listas, dejar reviews, dar likes, comentar y seguir usuarios."
   },

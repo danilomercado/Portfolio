@@ -102,7 +102,7 @@ const CardProyects = () => {
       <div className="mb-12">
         <div className="inline-flex items-center gap-2 rounded-sm border border-[#d4a737]/40 bg-[#171224] px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#facc15] shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
           <FolderGit2 size={14} className="text-[#facc15]" />
-          <span>Proyectos Destacados</span>
+          <span>{t("badge")}</span>
         </div>
 
         <h2 className="mt-3 flex items-center gap-3 font-['Cinzel_Decorative'] text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
@@ -113,8 +113,7 @@ const CardProyects = () => {
         </h2>
 
         <p className="mt-4 max-w-2xl font-['Cinzel'] text-sm leading-relaxed text-[#c7beaf] sm:text-base">
-          Proyectos reales enfocados en frontend, experiencia de usuario e
-          integración full stack.
+          {t("subtitle")}
         </p>
 
         <div className="mt-6 h-[1px] w-full bg-gradient-to-r from-[#d4a737]/60 via-[#d4a737]/20 to-transparent" />

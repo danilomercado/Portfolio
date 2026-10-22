@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   IconBrandReact,
   IconBrandTailwind,
@@ -18,139 +19,156 @@ import {
 } from "@tabler/icons-react";
 import { RpgCorner } from "../rpg/RpgOrnaments";
 import { rpgAudio } from "../rpg/SoundManager";
-import { Layers, Sparkles } from "lucide-react";
+import { Layers } from "lucide-react";
 
-// Componente del Stack Tecnológico con carrusel de movimiento infinito y desglose por categorías
+// Componente del Stack Tecnológico totalmente traducible con i18next
 const TechStack = () => {
+  const { t } = useTranslation("stack");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const CATEGORIES = [
-    { id: "all", label: "Todas las Tecnologías" },
-    { id: "backend", label: "Backend & APIs" },
-    { id: "frontend", label: "Frontend & UI" },
-    { id: "database", label: "Bases de Datos & SQL" },
-    { id: "tools", label: "Herramientas & Prácticas" },
+    { id: "all", label: t("categories.all") },
+    { id: "backend", label: t("categories.backend") },
+    { id: "frontend", label: t("categories.frontend") },
+    { id: "database", label: t("categories.database") },
+    { id: "tools", label: t("categories.tools") },
   ];
 
   const TECHNOLOGIES = [
     // Backend
     {
       name: "ASP.NET Core / C#",
-      category: "backend",
+      categoryKey: "backend",
+      categoryLabel: t("categories.backend"),
       icon: IconCode,
       color: "text-indigo-400 border-indigo-500/40 bg-indigo-950/40",
-      description: "APIs RESTful de alto rendimiento, Clean Architecture, inyección de dependencias y LINQ.",
+      description: t("items.dotnet"),
     },
     {
       name: "Node.js & Express",
-      category: "backend",
+      categoryKey: "backend",
+      categoryLabel: t("categories.backend"),
       icon: IconBrandNodejs,
       color: "text-emerald-400 border-emerald-500/40 bg-emerald-950/40",
-      description: "Servicios web asíncronos, middlewares modulares, routing y microservicios escalables.",
+      description: t("items.nodejs"),
     },
     {
       name: "Python & LangChain",
-      category: "backend",
+      categoryKey: "backend",
+      categoryLabel: t("categories.backend"),
       icon: IconBrandPython,
       color: "text-yellow-400 border-yellow-500/40 bg-yellow-950/40",
-      description: "Desarrollo de agentes de IA, automatización con XML-RPC e integración con LLMs.",
+      description: t("items.python"),
     },
     {
       name: "Entity Framework Core",
-      category: "backend",
+      categoryKey: "backend",
+      categoryLabel: t("categories.backend"),
       icon: IconServer,
       color: "text-rose-400 border-rose-500/40 bg-rose-950/40",
-      description: "ORM para .NET con enfoque Code-First, migraciones automáticas y consultas optimizadas.",
+      description: t("items.ef"),
     },
     {
       name: "Autenticación JWT",
-      category: "backend",
+      categoryKey: "backend",
+      categoryLabel: t("categories.backend"),
       icon: IconShieldLock,
       color: "text-amber-400 border-amber-500/40 bg-amber-950/40",
-      description: "Control de acceso seguro basado en roles (RBAC), tokens cifrados y protección de rutas.",
+      description: t("items.jwt"),
     },
 
     // Frontend
     {
       name: "React",
-      category: "frontend",
+      categoryKey: "frontend",
+      categoryLabel: t("categories.frontend"),
       icon: IconBrandReact,
       color: "text-cyan-400 border-cyan-500/40 bg-cyan-950/40",
-      description: "Single Page Applications interactivas, Custom Hooks, arquitectura de componentes y estado.",
+      description: t("items.react"),
     },
     {
       name: "Tailwind CSS",
-      category: "frontend",
+      categoryKey: "frontend",
+      categoryLabel: t("categories.frontend"),
       icon: IconBrandTailwind,
       color: "text-sky-400 border-sky-500/40 bg-sky-950/40",
-      description: "Diseño responsivo móvil-primero, micro-animaciones fluidas y sistemas de diseño modernos.",
+      description: t("items.tailwind"),
     },
     {
       name: "JavaScript (ES6+)",
-      category: "frontend",
+      categoryKey: "frontend",
+      categoryLabel: t("categories.frontend"),
       icon: IconBrandJavascript,
       color: "text-amber-300 border-amber-500/40 bg-amber-950/40",
-      description: "Promesas, Async/Await, manipulación del DOM, programación funcional y modularización.",
+      description: t("items.javascript"),
     },
     {
-      name: "HTML5 & CSS3 Avanzado",
-      category: "frontend",
+      name: "HTML5 & CSS3",
+      categoryKey: "frontend",
+      categoryLabel: t("categories.frontend"),
       icon: IconTerminal2,
       color: "text-orange-400 border-orange-500/40 bg-orange-950/40",
-      description: "Estructuras semánticas accesibles, Grid, Flexbox, variables CSS y animaciones aceleradas.",
+      description: t("items.htmlcss"),
     },
 
     // Bases de Datos
     {
       name: "PostgreSQL",
-      category: "database",
+      categoryKey: "database",
+      categoryLabel: t("categories.database"),
       icon: IconDatabase,
       color: "text-blue-400 border-blue-500/40 bg-blue-950/40",
-      description: "Modelado relacional robusto, claves foráneas, índices de alto rendimiento y transacciones ACID.",
+      description: t("items.postgres"),
     },
     {
       name: "SQL Server",
-      category: "database",
+      categoryKey: "database",
+      categoryLabel: t("categories.database"),
       icon: IconDatabase,
       color: "text-red-400 border-red-500/40 bg-red-950/40",
-      description: "Consultas T-SQL avanzadas, procedimientos almacenados e integración nativa con el ecosistema .NET.",
+      description: t("items.sqlserver"),
     },
     {
       name: "MySQL",
-      category: "database",
+      categoryKey: "database",
+      categoryLabel: t("categories.database"),
       icon: IconBrandMysql,
       color: "text-amber-400 border-amber-500/40 bg-amber-950/40",
-      description: "Diseño de esquemas eficientes, normalización y conexión con arquitecturas Node.js.",
+      description: t("items.mysql"),
     },
     {
       name: "Prisma ORM",
-      category: "database",
+      categoryKey: "database",
+      categoryLabel: t("categories.database"),
       icon: IconCpu,
       color: "text-teal-400 border-teal-500/40 bg-teal-950/40",
-      description: "Tipado estricto extremo con esquemas declarativos, migraciones seguras y consultas TypeScript/Node.",
+      description: t("items.prisma"),
     },
 
     // Herramientas & Arquitectura
     {
       name: "Git & GitHub",
-      category: "tools",
+      categoryKey: "tools",
+      categoryLabel: t("categories.tools"),
       icon: IconBrandGit,
       color: "text-orange-400 border-orange-500/40 bg-orange-950/40",
-      description: "Control de versiones distribuido, ramas, pull requests y mantenimiento de repositorios limpios.",
+      description: t("items.git"),
     },
     {
       name: "Clean Architecture",
-      category: "tools",
+      categoryKey: "tools",
+      categoryLabel: t("categories.tools"),
       icon: IconLayersLinked,
       color: "text-purple-400 border-purple-500/40 bg-purple-950/40",
-      description: "Patrones de diseño desacoplados, separación de capas (Dominio, Aplicación, Infraestructura, API).",
+      description: t("items.cleanarch"),
     },
     {
-      name: "Docker & Contenedores",
-      category: "tools",
+      name: "Docker",
+      categoryKey: "tools",
+      categoryLabel: t("categories.tools"),
       icon: IconBrandDocker,
       color: "text-sky-400 border-sky-500/40 bg-sky-950/40",
-      description: "Virtualización ligera de entornos de desarrollo y despliegues reproducibles multiplataforma.",
+      description: t("items.docker"),
     },
   ];
 
@@ -162,7 +180,7 @@ const TechStack = () => {
   const filteredTechs =
     selectedCategory === "all"
       ? TECHNOLOGIES
-      : TECHNOLOGIES.filter((t) => t.category === selectedCategory);
+      : TECHNOLOGIES.filter((t) => t.categoryKey === selectedCategory);
 
   return (
     <div className="mt-20">
@@ -170,26 +188,24 @@ const TechStack = () => {
       <div className="mb-10 text-center sm:text-left">
         <div className="inline-flex items-center gap-2 rounded-sm border border-[#d4a737]/40 bg-[#171224] px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#facc15] shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
           <Layers size={14} className="text-[#facc15]" />
-          <span>Ecosistema & Dominio Técnico</span>
+          <span>{t("badge")}</span>
         </div>
 
         <h3 className="mt-3 font-['Cinzel_Decorative'] text-2xl font-extrabold sm:text-3xl lg:text-4xl">
-          <span className="rpg-text-gold">Stack Tecnológico</span>
+          <span className="rpg-text-gold">{t("title")}</span>
         </h3>
 
         <p className="mt-2 font-['Cinzel'] text-sm leading-relaxed text-[#c7beaf]">
-          Herramientas, lenguajes y arquitecturas utilizadas en producción para desarrollar software robusto.
+          {t("subtitle")}
         </p>
       </div>
 
       {/* Cinta infinita con movimiento continuo de insignias tecnológicas */}
       <div className="relative mb-12 overflow-hidden rounded-sm border border-[#d4a737]/40 bg-[#0d0a14] py-4 shadow-[inset_0_0_20px_rgba(0,0,0,0.9)]">
-        {/* Degradados de desvanecimiento en los extremos */}
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#0d0a14] to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#0d0a14] to-transparent" />
 
         <div className="animate-marquee flex items-center gap-4">
-          {/* Duplicamos la lista para garantizar el ciclo infinito sin saltos */}
           {[...TECHNOLOGIES, ...TECHNOLOGIES].map((tech, idx) => (
             <div
               key={idx}
@@ -244,7 +260,7 @@ const TechStack = () => {
                   {tech.name}
                 </h4>
                 <span className="font-mono text-[10px] text-[#38bdf8] uppercase">
-                  {tech.category}
+                  {tech.categoryLabel}
                 </span>
               </div>
             </div>
