@@ -1,25 +1,18 @@
 {
-  "title": "About Me",
-  "intro": "Software developer focused on building complete full stack applications, combining modern interface design with solid and scalable backend architectures.",
-
-  "card1Title": "Work style",
-  "card1Text": "I focus on deeply understanding the problem before writing code, designing simple, efficient, and modular solutions.",
-
-  "card2Title": "Continuous Learning",
-  "card2Text": "I refine my skills by building production-grade applications, diving deep into design patterns and continuous optimization.",
-
-  "card3Title": "Mindset",
-  "card3Text": "I prioritize best practices, security, and maintainable code to create dependable and long-lasting software.",
-
-  "p1": "I’m especially interested in understanding how an application works beyond the interface: from endpoint design and business rules to code organization and database integration.",
-
-  "p2": "I enjoy working on projects where I can apply good practices, write maintainable code, and improve both technically and in solving real problems.",
-
-  "p3": "I complement my technical profile by developing advanced full stack projects, implementing secure authentication, relational databases, and AI agents.",
-
-  "sideTitle1": "Currently",
-  "sideText1": "Building full stack web applications and AI-powered solutions.",
-
-  "sideTitle2": "Specialty",
-  "sideText2": "Backend architecture in ASP.NET Core and Node.js with reactive frontend in React."
+  "title": "Sobre mí",
+  "intro": "Desarrollador full stack y técnico en infraestructura y redes: construyo aplicaciones web de punta a punta y entiendo la red y los servidores donde corren.",
+  "card1Title": "Forma de trabajar",
+  "card1Text": "Me enfoco en entender a fondo el problema antes de escribir código, diseñando soluciones simples, eficientes y modulares.",
+  "card2Title": "Aprendizaje continuo",
+  "card2Text": "Sigo afinando mis habilidades con aplicaciones de producción, patrones de diseño y optimización, y exploro IA local con Ollama aplicada a automatización.",
+  "card3Title": "Mentalidad",
+  "card3Text": "Trabajo con metodologías ágiles (Scrum y Kanban) y priorizo buenas prácticas, seguridad y código mantenible para crear software confiable.",
+  "p1": "Me interesa especialmente entender cómo funciona una aplicación más allá de la interfaz: desde el diseño de endpoints y reglas de negocio hasta la organización del código y la conexión con bases de datos.",
+  "p2": "Disfruto trabajar en proyectos donde pueda aplicar buenas prácticas, escribir código mantenible y mejorar tanto en la parte técnica como en la resolución de problemas concretos.",
+  "p3": "Complemento mi perfil con proyectos full stack avanzados: autenticación segura, bases de datos relacionales, integraciones con Odoo por XML-RPC/JSON-RPC y agentes de IA.",
+  "sideTitle1": "Actualmente",
+  "sideText1": "Desarrollo web y soporte de plataformas internas en Alasknet, y construyo aplicaciones full stack y soluciones con inteligencia artificial.",
+  "sideTitle2": "Especialidad",
+  "sideText2": "Arquitectura backend en ASP.NET Core y Node.js con frontend reactivo en React.",
+  "hint": "Estirá las formas y soltalas."
 }

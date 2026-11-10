@@ -12,4 +12,8 @@ i18n
     },
   });
 
+i18n.on("languageChanged", (lng) => {
+  document.documentElement.lang = (lng || "en").slice(0, 2);
+});
+
 export default i18n;

@@ -1,0 +1,43 @@
+{
+  "title": "Experiencia",
+  "profile": "Interfaces en React, servicios en .NET y Python, bases de datos relacionales y automatización con IA: el recorrido completo de una aplicación.",
+  "items": [
+    {
+      "company": "Alasknet",
+      "role": "Desarrollador Full Stack & Técnico en Infraestructura y Redes",
+      "period": "Septiembre 2026 – Presente",
+      "place": "Rosario, Argentina",
+      "bullets": [
+        "Desarrollo y mantengo aplicaciones web y módulos de software, y doy soporte a plataformas y servicios internos con React, PostgreSQL, Docker y GitHub.",
+        "Integraciones con Odoo vía XML-RPC/JSON-RPC y despliegue de soluciones en VPS.",
+        "Configuración, monitoreo y soporte preventivo y correctivo de redes (routing, switching, LAN/WAN), servidores y hardware."
+      ]
+    },
+    {
+      "company": "FIWO Agency",
+      "role": "Lead Developer (Startup por proyecto)",
+      "period": "Feb 2026 – Jul 2026",
+      "place": "Rosario, Argentina",
+      "bullets": [
+        "Diseño e implementación integral de aplicaciones web Full Stack con React en el frontend y ASP.NET Core (C#) en el backend, bajo principios de Clean Architecture.",
+        "Desarrollo de interfaces dinámicas y responsive con Tailwind CSS, consumo e integración de endpoints REST y seguridad mediante JWT.",
+        "Modelado y persistencia de datos relacionales con Entity Framework Core / SQL Server y despliegue continuo en Microsoft Azure."
+      ]
+    },
+    {
+      "company": "UTN Rosario",
+      "kind": "Facultad",
+      "role": "Técnico Universitario en Programación",
+      "period": "2023 · Graduado",
+      "place": "Facultad Regional Rosario (UTN FRRO)",
+      "bullets": [
+        "Formación en algoritmos, estructuras de datos, lógica modular y administración de bases de datos relacionales.",
+        "Análisis de problemas de procesamiento de datos y su resolución en lenguajes de programación, con el algoritmo y la técnica adecuados para un programa bien estructurado.",
+        "Elaboración y corrección de programas en lenguajes de nivel superior y tareas específicas definidas por el analista de sistemas.",
+        "Depuración y entrega de la información procesada al especialista que la utiliza.",
+        "Inglés Intermedio."
+      ]
+    }
+  ],
+  "hint": "Seguí scrolleando"
+}

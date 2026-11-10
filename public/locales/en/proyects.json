@@ -1,18 +1,21 @@
 {
-  "title": "Proyectos",
-  "badge": "Proyectos Destacados",
-  "subtitle": "Proyectos reales enfocados en frontend, experiencia de usuario e integración full stack.",
+  "title": "Projects",
+  "badge": "Featured Projects",
+  "subtitle": "Real-world projects focused on frontend, user experience, and full stack integration.",
   "YumeTrack": {
-    "text-proyect": "Aplicación fullstack tipo red social para tracking de anime y manga. Permite gestionar listas, dejar reviews, dar likes, comentar y seguir usuarios."
+    "text-proyect": "Fullstack social platform for tracking anime and manga. Allows users to manage lists, write reviews, like, comment, and follow others."
   },
   "OdooAgent": {
-    "text-proyect": "Agente de IA integrado a Odoo ERP. Automatiza la creación de leads desde mensajes de texto desestructurados usando LangChain, Function Calling y XML-RPC."
+    "text-proyect": "AI Agent connected to Odoo ERP. Automates lead management from unstructured text via WhatsApp/Email using LangChain, Function Calling, and XML-RPC."
   },
   "ArmaF5": {
-    "text-proyect": "Aplicación fullstack para armar equipos de fútbol 5 de forma automática y equilibrada según habilidades. Incluye autenticación con JWT, gestión de jugadores, creación de equipos y roles (usuario/admin)."
+    "text-proyect": "Fullstack application to automatically generate balanced 5-a-side football teams based on player skills. Includes JWT authentication, player management, team creation, and role-based access (user/admin)."
   },
   "CanchaYa": {
-    "text-proyect": "Pagina para reservar canchas de futbol o padel. Con roles de usuario y un backend con NodeJS"
+    "text-proyect": "A website for booking soccer or padel courts, with user roles and a backend built with NodeJS."
   },
-  "preview": "Ver Pagina"
+  "preview": "Preview",
+  "deckHint": "Drag the top card and throw it to the side.",
+  "prev": "Previous",
+  "next": "Next"
 }

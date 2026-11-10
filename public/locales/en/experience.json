@@ -1,0 +1,43 @@
+{
+  "title": "Experience",
+  "profile": "React interfaces, .NET and Python services, relational databases and AI automation: the whole journey of an application.",
+  "items": [
+    {
+      "company": "Alasknet",
+      "role": "Full Stack Developer & Network Infrastructure Technician",
+      "period": "September 2026 – Present",
+      "place": "Rosario, Argentina",
+      "bullets": [
+        "I develop and maintain web applications and software modules, and support internal platforms and services with React, PostgreSQL, Docker and GitHub.",
+        "Odoo integrations via XML-RPC/JSON-RPC and solution deployment on VPS.",
+        "Configuration, monitoring and preventive/corrective support of networks (routing, switching, LAN/WAN), servers and hardware."
+      ]
+    },
+    {
+      "company": "FIWO Agency",
+      "role": "Lead Developer (project-based startup)",
+      "period": "Feb 2026 – Jul 2026",
+      "place": "Rosario, Argentina",
+      "bullets": [
+        "End-to-end design and implementation of Full Stack web apps with React on the frontend and ASP.NET Core (C#) on the backend, following Clean Architecture.",
+        "Built dynamic, responsive interfaces with Tailwind CSS, integrated REST endpoints and handled security with JWT.",
+        "Relational data modeling and persistence with Entity Framework Core / SQL Server, with continuous deployment on Microsoft Azure."
+      ]
+    },
+    {
+      "company": "UTN Rosario",
+      "kind": "University",
+      "role": "University Technician in Programming",
+      "period": "2023 · Graduated",
+      "place": "Rosario Regional Faculty (UTN FRRO)",
+      "bullets": [
+        "Studies in algorithms, data structures, modular logic and relational database administration.",
+        "Analysis of data-processing problems and their solution in programming languages, choosing the right algorithm and technique for a well-structured program.",
+        "Writing and fixing programs in high-level languages, and carrying out specific tasks defined by the systems analyst.",
+        "Debugging and handing the processed information over to the specialist who uses it.",
+        "English: Intermediate."
+      ]
+    }
+  ],
+  "hint": "Keep scrolling"
+}

@@ -1,225 +1,203 @@
-import {
-  IconBrandGithub,
-  IconBrandMysql,
-  IconBrandNodejs,
-  IconBrandReact,
-  IconBrandTailwind,
-  IconBrandPython,
-  IconCpu,
-  IconCode,
-  IconExternalLink,
-} from "@tabler/icons-react";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { RpgCorner } from "../rpg/RpgOrnaments";
-import { rpgAudio } from "../rpg/SoundManager";
-import { Code2, Sparkles, FolderGit2 } from "lucide-react";
+import { IconBrandGithub } from "@tabler/icons-react";
+import { spring, stepSpring } from "../../lib/spring";
 
-// Sección de proyectos con estructura en cuadrícula RPG y terminología profesional
+const DATA = [
+  { id: 0, key: "OdooAgent", title: "Odoo AI Agent", github: "https://github.com/danilomercado/Odoo-AI-Agent", image: "/img/odoo.webp", tags: ["Python", "LangChain", "XML-RPC", "PostgreSQL"] },
+  { id: 1, key: "YumeTrack", title: "YumeTrack", github: "https://github.com/danilomercado/YumeTrack", image: "/img/yumePort.webp", tags: ["React", "Tailwind CSS", ".NET", "PostgreSQL", "Entity Framework", "JWT"] },
+  { id: 2, key: "ArmaF5", title: "ArmaF5", github: "https://github.com/danilomercado/FUTBOL5", image: "/img/f5Port.webp", tags: ["React", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma", "JWT"] },
+  { id: 3, key: "CanchaYa", title: "CanchaYa", github: "https://github.com/danilomercado/CanchaYa.git", image: "/img/canchaya.webp", tags: ["React", "Tailwind CSS", "Node.js"] },
+];
+
+// Proyectos como mazo de cartas: se agarra la de arriba y se tira hacia un costado (con inercia);
+// si el tiro es flojo vuelve con resorte; si es fuerte vuela y se va al fondo del mazo.
 const CardProyects = () => {
   const { t } = useTranslation("proyects");
+  const { t: tHome } = useTranslation("inicio");
+  const [order, setOrder] = useState(DATA.map((d) => d.id));
+  const [entering, setEntering] = useState(null);
+  const orderRef = useRef(order);
+  orderRef.current = order;
+  const els = useRef({});
+  const st = useRef({});
 
-  const TAGS = {
-    REACT: { name: "React", icon: IconBrandReact, color: "text-cyan-300 border-cyan-500/40 bg-cyan-950/40" },
-    TAILWIND: { name: "Tailwind CSS", icon: IconBrandTailwind, color: "text-sky-300 border-sky-500/40 bg-sky-950/40" },
-    NODE: { name: "Node.js", icon: IconBrandNodejs, color: "text-emerald-300 border-emerald-500/40 bg-emerald-950/40" },
-    MYSQL: { name: "MySQL", icon: IconBrandMysql, color: "text-amber-300 border-amber-500/40 bg-amber-950/40" },
-    PYTHON: { name: "Python", icon: IconBrandPython, color: "text-yellow-300 border-yellow-500/40 bg-yellow-950/40" },
-    LANGCHAIN: { name: "LangChain", icon: IconCpu, color: "text-purple-300 border-purple-500/40 bg-purple-950/40" },
-    DOTNET: { name: ".NET", icon: IconCode, color: "text-indigo-300 border-indigo-500/40 bg-indigo-950/40" },
-    POSTGRES: { name: "PostgreSQL", icon: IconBrandMysql, color: "text-blue-300 border-blue-500/40 bg-blue-950/40" },
-    EF: { name: "Entity Framework", icon: IconCode, color: "text-rose-300 border-rose-500/40 bg-rose-950/40" },
-    JWT: { name: "JWT", icon: IconCode, color: "text-amber-400 border-amber-500/40 bg-amber-950/40" },
-    EXPRESS: { name: "Express", icon: IconCode, color: "text-zinc-300 border-zinc-500/40 bg-zinc-900/60" },
-    PRISMA: { name: "Prisma", icon: IconCode, color: "text-teal-300 border-teal-500/40 bg-teal-950/40" },
-    XMLRPC: { name: "XML-RPC", icon: IconCode, color: "text-orange-300 border-orange-500/40 bg-orange-950/40" },
+  const state = (id) => (st.current[id] ||= { x: spring(), y: spring(), raf: 0, drag: null, hist: [], busy: false });
+
+  const apply = (id) => {
+    const s = state(id);
+    const el = els.current[id];
+    if (!el) return;
+    el.style.setProperty("--x", `${s.x.x.toFixed(1)}px`);
+    el.style.setProperty("--y", `${s.y.x.toFixed(1)}px`);
+    el.style.setProperty("--dr", `${(s.x.x * 0.045).toFixed(2)}deg`);
   };
 
-  const PROYECTS = [
-    {
-      id: 1,
-      title: "Odoo AI Agent",
-      category: "IA & Automatización",
-      categoryColor: "text-purple-300 border-purple-500/50 bg-purple-950/50",
-      description: t("OdooAgent.text-proyect"),
-      github: "https://github.com/danilomercado/Odoo-AI-Agent",
-      image: "/odoo.png",
-      tags: [TAGS.PYTHON, TAGS.LANGCHAIN, TAGS.XMLRPC, TAGS.POSTGRES],
-    },
-    {
-      id: 2,
-      title: "YumeTrack",
-      category: "Full Stack .NET & React",
-      categoryColor: "text-amber-300 border-amber-500/50 bg-amber-950/50",
-      description: t("YumeTrack.text-proyect"),
-      github: "https://github.com/danilomercado/YumeTrack",
-      image: "/yumePort.png",
-      tags: [
-        TAGS.REACT,
-        TAGS.TAILWIND,
-        TAGS.DOTNET,
-        TAGS.POSTGRES,
-        TAGS.EF,
-        TAGS.JWT,
-      ],
-    },
-    {
-      id: 3,
-      title: "ArmaF5",
-      category: "Full Stack & Algoritmos",
-      categoryColor: "text-rose-300 border-rose-500/50 bg-rose-950/50",
-      description: t("ArmaF5.text-proyect"),
-      github: "https://github.com/danilomercado/FUTBOL5",
-      image: "/f5Port.png",
-      tags: [
-        TAGS.REACT,
-        TAGS.TAILWIND,
-        TAGS.NODE,
-        TAGS.EXPRESS,
-        TAGS.POSTGRES,
-        TAGS.PRISMA,
-        TAGS.JWT,
-      ],
-    },
-    {
-      id: 4,
-      title: "CanchaYa",
-      category: "Plataforma Web",
-      categoryColor: "text-sky-300 border-sky-500/50 bg-sky-950/50",
-      description: t("CanchaYa.text-proyect"),
-      github: "https://github.com/danilomercado/CanchaYa.git",
-      image: "/canchaya.png",
-      tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.NODE],
-    },
-  ];
+  const finishThrow = (id) => {
+    const s = state(id);
+    const el = els.current[id];
+    s.busy = false;
+    el.classList.add("snap");
+    s.x.x = s.y.x = s.x.v = s.y.v = 0;
+    apply(id);
+    setOrder((o) => [...o.filter((x) => x !== id), id]);
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.remove("snap", "moving")));
+  };
+
+  const run = (id, targetX, throwing) => {
+    const s = state(id);
+    const el = els.current[id];
+    cancelAnimationFrame(s.raf);
+    el.classList.add("moving");
+    s.busy = true;
+    let last = performance.now();
+    const loop = (now) => {
+      const dt = Math.min(0.032, (now - last) / 1000);
+      last = now;
+      stepSpring(s.x, targetX, dt, throwing ? 0.55 : 0.45, throwing ? 1 : 0.6);
+      stepSpring(s.y, throwing ? s.y.x + s.y.v * 0.05 : 0, dt, 0.5, 1);
+      apply(id);
+      if (throwing && Math.abs(s.x.x) > window.innerWidth * 0.62) return finishThrow(id);
+      if (!throwing && Math.abs(s.x.x) < 0.3 && Math.abs(s.x.v) < 0.5 && Math.abs(s.y.x) < 0.3) {
+        s.x.x = s.y.x = s.x.v = s.y.v = 0;
+        apply(id);
+        s.busy = false;
+        el.classList.remove("moving");
+        return;
+      }
+      s.raf = requestAnimationFrame(loop);
+    };
+    s.raf = requestAnimationFrame(loop);
+  };
+
+  const down = (e, id) => {
+    if (id !== orderRef.current[0] || e.button || e.target.closest("a,button")) return;
+    const s = state(id);
+    if (s.busy) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    s.drag = { px: e.clientX, py: e.clientY, bx: s.x.x, by: s.y.x };
+    s.hist = [{ t: performance.now(), x: e.clientX }];
+    els.current[id].classList.add("moving", "grabbed");
+  };
+  const move = (e, id) => {
+    const s = state(id);
+    if (!s.drag) return;
+    s.x.x = s.drag.bx + e.clientX - s.drag.px;
+    s.y.x = s.drag.by + (e.clientY - s.drag.py) * 0.6;
+    const now = performance.now();
+    s.hist.push({ t: now, x: e.clientX });
+    s.hist = s.hist.filter((h) => now - h.t < 100);
+    apply(id);
+  };
+  const up = (id) => {
+    const s = state(id);
+    if (!s.drag) return;
+    const a = s.hist[0], b = s.hist[s.hist.length - 1];
+    const vx = ((b.x - a.x) / Math.max(0.016, (b.t - a.t) / 1000)) * 0.9;
+    s.drag = null;
+    els.current[id].classList.remove("grabbed");
+    s.x.v = vx;
+    s.y.v = 0;
+    const projected = s.x.x + vx * 0.22;
+    if (Math.abs(projected) > 140) run(id, Math.sign(projected) * (window.innerWidth + 400), true);
+    else run(id, 0, false);
+  };
+
+  const next = () => {
+    const id = orderRef.current[0];
+    const s = state(id);
+    if (s.busy) return;
+    s.x.v = -1500;
+    run(id, -(window.innerWidth + 400), true);
+  };
+  const prev = () => {
+    const o = orderRef.current;
+    const id = o[o.length - 1];
+    setEntering(id);
+    setOrder([id, ...o.slice(0, -1)]);
+    setTimeout(() => setEntering(null), 600);
+  };
+  const bring = (id) => {
+    const o = orderRef.current;
+    const i = o.indexOf(id);
+    setOrder([...o.slice(i), ...o.slice(0, i)]);
+  };
+
+  useEffect(() => () => Object.values(st.current).forEach((s) => cancelAnimationFrame(s.raf)), []);
 
   return (
-    <section
-      id="proyectos"
-      className="relative mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 lg:px-8"
-    >
-      {/* Encabezado de proyectos */}
-      <div className="mb-12">
-        <div className="inline-flex items-center gap-2 rounded-sm border border-[#d4a737]/40 bg-[#171224] px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#facc15] shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
-          <FolderGit2 size={14} className="text-[#facc15]" />
-          <span>{t("badge")}</span>
+    <section id="proyectos" className="sheet sheet-violet">
+      <div className="wrap section deck-grid">
+        <div className="deck-intro">
+          <h2 className="display h-lg" data-reveal>
+            {t("title")}
+          </h2>
+          <p className="lead" data-reveal style={{ "--d": 1 }}>
+            {t("subtitle")}
+          </p>
+
+          <div className="deck-controls" data-reveal style={{ "--d": 2 }}>
+            <button type="button" className="btn btn-soft" onClick={prev}>
+              ← {t("prev")}
+            </button>
+            <button type="button" className="btn" onClick={next}>
+              {t("next")} →
+            </button>
+            <span className="deck-count" aria-live="polite">
+              {order[0] + 1} / {DATA.length}
+            </span>
+          </div>
+
+          <ol className="deck-list">
+            {DATA.map((p) => (
+              <li key={p.id}>
+                <button
+                  type="button"
+                  className={order[0] === p.id ? "is-on" : ""}
+                  aria-current={order[0] === p.id ? "true" : undefined}
+                  onClick={() => bring(p.id)}
+                >
+                  <span>{p.title}</span>
+                  <small>{p.tags.slice(0, 3).join(" · ")}</small>
+                </button>
+              </li>
+            ))}
+          </ol>
+          <p className="hint">{t("deckHint")}</p>
         </div>
 
-        <h2 className="mt-3 flex items-center gap-3 font-['Cinzel_Decorative'] text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-          <span className="flex size-12 items-center justify-center rounded-sm border border-[#d4a737] bg-[#1a1429] shadow-[0_0_15px_rgba(212,167,55,0.3)]">
-            <Code2 className="size-6 text-[#facc15]" />
-          </span>
-          <span className="rpg-text-gold">{t("title")}</span>
-        </h2>
-
-        <p className="mt-4 max-w-2xl font-['Cinzel'] text-sm leading-relaxed text-[#c7beaf] sm:text-base">
-          {t("subtitle")}
-        </p>
-
-        <div className="mt-6 h-[1px] w-full bg-gradient-to-r from-[#d4a737]/60 via-[#d4a737]/20 to-transparent" />
-      </div>
-
-      {/* Cuadrícula moderna 2x2 de proyectos con marcos RPG */}
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        {PROYECTS.map(
-          ({ id, image, title, category, categoryColor, description, tags, github, link, status }) => (
-            <article
-              key={id}
-              className="rpg-card rpg-corner-brackets group flex flex-col justify-between overflow-hidden rounded-sm transition-all duration-300 hover:border-[#facc15]/80 hover:shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_25px_rgba(212,167,55,0.25)] hover:-translate-y-1"
-            >
-              <RpgCorner position="top-left" />
-              <RpgCorner position="top-right" />
-              <RpgCorner position="bottom-left" />
-              <RpgCorner position="bottom-right" />
-
-              <div>
-                {/* Ventana de previsualización */}
-                <div className="relative aspect-video w-full overflow-hidden border-b border-[#d4a737]/30 bg-[#09070f]">
-                  <img
-                    alt={title}
-                    className="size-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                    src={image}
-                  />
-
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#140f21] via-transparent to-transparent opacity-90" />
-
-                  {/* Insignia de categoría técnica */}
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span
-                      className={`inline-flex items-center gap-1 rounded-sm border px-2.5 py-0.5 font-['Cinzel'] text-[10px] font-bold ${categoryColor} shadow-md`}
-                    >
-                      <Sparkles size={11} />
-                      {category}
-                    </span>
-                  </div>
-
-                  {status === "in-progress" && (
-                    <div className="absolute top-3 right-3">
-                      <span className="rounded-sm border border-yellow-500/50 bg-yellow-950/70 px-2 py-0.5 font-['Cinzel'] text-[10px] font-bold text-yellow-300">
-                        En desarrollo
-                      </span>
-                    </div>
-                  )}
+        <div className="deck">
+          {DATA.map((p) => {
+            const k = order.indexOf(p.id);
+            return (
+              <article
+                key={p.id}
+                ref={(n) => (els.current[p.id] = n)}
+                className={`deck-card ${p.id % 2 ? "deck-ink" : "deck-paper"} ${entering === p.id ? "entering" : ""}`}
+                style={{ "--k": k, "--kc": Math.min(k, 2), "--ks": Math.min(k, 3), "--sg": k % 2 ? 1 : -1, zIndex: 10 - k, pointerEvents: k === 0 ? "auto" : "none" }}
+                data-cursor={k === 0 ? tHome("drag") : undefined}
+                onPointerDown={(e) => down(e, p.id)}
+                onPointerMove={(e) => move(e, p.id)}
+                onPointerUp={() => up(p.id)}
+                onPointerCancel={() => up(p.id)}
+                aria-hidden={k !== 0}
+              >
+                <div className="deck-frame">
+                  <img alt={p.title} loading="lazy" decoding="async" width="920" height="518" src={p.image} draggable="false" />
                 </div>
-
-                {/* Contenido descriptivo */}
-                <div className="p-6">
-                  <h3 className="font-['Cinzel'] text-xl font-bold tracking-tight text-white drop-shadow sm:text-2xl group-hover:text-[#fef08a] transition-colors">
-                    {title}
-                  </h3>
-
-                  {/* Etiquetas de tecnologías */}
-                  <ul className="mt-3 flex flex-wrap gap-1.5">
-                    {tags.map((tag) => (
-                      <li key={tag.name}>
-                        <span
-                          className={`inline-flex items-center gap-1 rounded-sm border px-2 py-0.5 font-mono text-[11px] font-semibold ${tag.color}`}
-                        >
-                          <tag.icon className="size-3" />
-                          {tag.name}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <p className="mt-4 text-sm leading-relaxed text-[#c7beaf] line-clamp-3">
-                    {description}
-                  </p>
+                <div className="deck-body">
+                  <h3 className="display">{p.title}</h3>
+                  <p className="tags">{p.tags.join(" · ")}</p>
+                  <p className="desc">{t(`${p.key}.text-proyect`)}</p>
+                  <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn" tabIndex={k === 0 ? 0 : -1}>
+                    <IconBrandGithub className="size-5" />
+                    GitHub
+                  </a>
                 </div>
-              </div>
-
-              {/* Botones de acción */}
-              <div className="border-t border-[#d4a737]/20 bg-[#100c1c]/60 p-6 pt-4 flex flex-wrap gap-3">
-                {github && (
-                  <a
-                    href={github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => rpgAudio.playItemClick()}
-                    className="rpg-btn text-xs"
-                  >
-                    <IconBrandGithub className="size-4 text-[#a855f7]" />
-                    <span>GitHub</span>
-                  </a>
-                )}
-
-                {link && (
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => rpgAudio.playItemClick()}
-                    className="rpg-btn-mana rpg-btn text-xs"
-                  >
-                    <IconExternalLink className="size-4" />
-                    <span>{t("preview")}</span>
-                  </a>
-                )}
-              </div>
-            </article>
-          ),
-        )}
+              </article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
