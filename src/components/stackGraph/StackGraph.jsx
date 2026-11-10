@@ -12,6 +12,8 @@ const StackGraph = ({ items, onPick, activeId, cursorLabel, labels }) => {
   const nodes = useRef([]);
   const lines = useRef([]);
   const api = useRef({});
+  const activeRef = useRef(activeId);
+  activeRef.current = activeId;
   const [cat, setCat] = useState("all");
 
   const degree = useMemo(() => {
@@ -38,7 +40,8 @@ const StackGraph = ({ items, onPick, activeId, cursorLabel, labels }) => {
     });
     const measure = () => sim.forEach((n) => { n.w = n.el.offsetWidth; n.h = n.el.offsetHeight; });
 
-    let raf = 0, last = 0, calm = 0, active = false, visible = false;
+    let raf = 0, last = 0, calm = 0, run = 0, active = false, visible = false;
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
 
     const render = () => {
       sim.forEach((n) => {
@@ -54,7 +57,7 @@ const StackGraph = ({ items, onPick, activeId, cursorLabel, labels }) => {
     };
 
     const step = (k) => {
-      const rest = Math.max(105, Math.min(180, W * 0.14));
+      const rest = Math.max(70, Math.min(180, W * 0.14));
       for (let i = 0; i < sim.length; i++) {
         for (let j = i + 1; j < sim.length; j++) {
           const a = sim[i], b = sim[j];
@@ -111,10 +114,14 @@ const StackGraph = ({ items, onPick, activeId, cursorLabel, labels }) => {
       const energy = sim.reduce((s, n) => s + Math.abs(n.vx) + Math.abs(n.vy), 0);
       const grabbed = sim.some((n) => n.drag);
       calm = energy < 0.25 && !grabbed ? calm + dt : 0;
+      run += dt;
+      // si la red está muy apretada (pantalla chica) nunca llega a calmarse: se corta tras unos segundos
+      if (run > 3.5 && !grabbed) { sim.forEach((n) => { n.vx = n.vy = 0; }); return; }
       if (calm < 0.7) raf = requestAnimationFrame(frame);
     };
     const wake = () => {
       calm = 0;
+      run = 0;
       if (!raf && active && visible) { last = performance.now(); raf = requestAnimationFrame(frame); }
     };
 
@@ -150,7 +157,7 @@ const StackGraph = ({ items, onPick, activeId, cursorLabel, labels }) => {
 
     // de vez en cuando una tecnología se mueve sola para que la red no quede quieta
     const nudge = setInterval(() => {
-      if (!visible || reduce || sim.some((n) => n.drag)) return;
+      if (!visible || reduce || coarse || sim.some((n) => n.drag)) return;
       const n = sim[Math.floor(Math.random() * sim.length)];
       n.vx += (Math.random() - 0.5) * 9;
       n.vy += (Math.random() - 0.5) * 9;
@@ -162,15 +169,17 @@ const StackGraph = ({ items, onPick, activeId, cursorLabel, labels }) => {
       const n = sim[list.indexOf(e.currentTarget)];
       const rect = el.getBoundingClientRect();
       e.currentTarget.setPointerCapture(e.pointerId);
-      grab.set(e.pointerId, { n, ox: e.clientX - rect.left - n.x, oy: e.clientY - rect.top - n.y });
+      const id = items[list.indexOf(e.currentTarget)].id;
+      grab.set(e.pointerId, { n, id, wasActive: activeRef.current === id, sx: e.clientX, sy: e.clientY, moved: false, ox: e.clientX - rect.left - n.x, oy: e.clientY - rect.top - n.y });
       n.drag = true; n.vx = n.vy = 0;
       n.el.dataset.drag = "1";
-      onPick(items[list.indexOf(e.currentTarget)].id);
+      if (activeRef.current !== id) onPick(id);
       wake();
     };
     const move = (e) => {
       const g = grab.get(e.pointerId);
       if (!g) return;
+      if (Math.hypot(e.clientX - g.sx, e.clientY - g.sy) > 5) g.moved = true;
       const rect = el.getBoundingClientRect();
       g.n.x = Math.min(W - g.n.w / 2, Math.max(g.n.w / 2, e.clientX - rect.left - g.ox));
       g.n.y = Math.min(H - g.n.h / 2, Math.max(g.n.h / 2, e.clientY - rect.top - g.oy));
@@ -182,6 +191,8 @@ const StackGraph = ({ items, onPick, activeId, cursorLabel, labels }) => {
       if (!g) return;
       g.n.drag = false;
       delete g.n.el.dataset.drag;
+      // tocar de nuevo el nodo ya elegido (sin arrastrarlo) lo deselecciona
+      if (e.type === "pointerup" && g.wasActive && !g.moved) onPick(null);
       grab.delete(e.pointerId);
       wake();
     };
@@ -208,13 +219,14 @@ const StackGraph = ({ items, onPick, activeId, cursorLabel, labels }) => {
     };
   }, [items, onPick]);
 
-  const dimNode = (it) => (near && !near.has(it.id)) || (cat !== "all" && it.cat !== cat);
+  // con un filtro de categoría activo manda el filtro; si no, se resaltan los vecinos del elegido
+  const dimNode = (it) => (cat !== "all" ? it.cat !== cat && it.id !== activeId : near && !near.has(it.id));
 
   return (
     <div className="pit-wrap">
       <div className="pit-controls" role="group" aria-label={labels.filter}>
         {["all", ...CATS].map((c) => (
-          <button key={c} type="button" className={`btn btn-soft ${cat === c ? "is-on" : ""}`} aria-pressed={cat === c} onClick={() => setCat(c)}>
+          <button key={c} type="button" className={`btn btn-soft ${cat === c ? "is-on" : ""}`} aria-pressed={cat === c} onClick={() => { setCat(cat === c ? "all" : c); onPick(null); }}>
             {labels.cats[c]}
           </button>
         ))}
@@ -227,7 +239,8 @@ const StackGraph = ({ items, onPick, activeId, cursorLabel, labels }) => {
         <svg className="graph-edges" aria-hidden="true">
           {EDGES.map(([a, b], i) => {
             const hot = activeId && (a === activeId || b === activeId);
-            const dim = (activeId && !hot) || (cat !== "all" && !(items.find((x) => x.id === a)?.cat === cat && items.find((x) => x.id === b)?.cat === cat));
+            const inCat = items.find((x) => x.id === a)?.cat === cat && items.find((x) => x.id === b)?.cat === cat;
+            const dim = cat !== "all" ? !inCat : activeId && !hot;
             return <line key={`${a}-${b}`} ref={(n) => (lines.current[i] = n)} className={`gedge ${hot ? "is-hot" : ""} ${dim && !hot ? "is-dim" : ""}`} />;
           })}
         </svg>
@@ -240,7 +253,7 @@ const StackGraph = ({ items, onPick, activeId, cursorLabel, labels }) => {
             className={`gnode cat-${it.cat} ${activeId === it.id ? "active" : ""} ${dimNode(it) ? "is-dim" : ""}`}
             style={{ fontSize: `${0.86 + Math.min(degree[it.id] || 0, 6) * 0.06}rem` }}
             data-cursor={cursorLabel}
-            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onPick(it.id)}
+            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onPick(activeId === it.id ? null : it.id)}
           >
             {it.name}
           </button>

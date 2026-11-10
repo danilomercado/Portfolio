@@ -451,7 +451,11 @@ body, .hero, .sheet-paper, .sheet-lilac, .sheet-violet {
 .gedge.is-hot { stroke: var(--violet); stroke-width: 4; }
 .gedge.is-dim { opacity: 0.12; }
 .gnode { position: absolute; left: 0; top: 0; z-index: 2; border: 2px solid var(--ink); border-radius: 999px; padding: 0.5em 1em; font-weight: 700; line-height: 1.1; white-space: nowrap; color: var(--ink); touch-action: none; will-change: transform; transition: opacity 0.3s, box-shadow 0.3s; cursor: grab; }
-@media (pointer: coarse) { .gnode { touch-action: pan-y; } }
+@media (max-width: 899px) {
+  .pit.graph { height: 620px; }
+  .gnode { padding: 0.4em 0.8em; font-size: 0.78rem !important; }
+}
+@media (max-width: 480px) { .pit.graph { height: 680px; } }
 .gnode[data-drag] { z-index: 5; cursor: grabbing; }
 .gnode.is-dim { opacity: 0.38; }
 .gnode.active { box-shadow: 0 0 0 4px var(--paper); }
